@@ -1,0 +1,35 @@
+
+import random
+print('Hello World!')
+#Generate a random number between 1 and 9 (including 1 and 9). Ask the user to guess the number, then tell them whether they guessed too low, too high, or exactly right. (Hint: remember to use the user input lessons from the very first exercise)
+#Keep the game going until the user types “exit”
+#Keep track of how many guesses the user has taken, and when the game ends, print this out.
+a = str(random.randint(1,9))
+guess_count = 0
+x = input('Guess the number from 1 to 9: ')
+while x == str(range(1,10)) or x != str(range(1,10)):
+	if x == a:
+		print('You got it right!')
+		print('Number of guesses: ' + str(guess_count))
+		break
+	elif x == 'exit':
+		print('Number of guesses: ' + str(guess_count))
+		print('Goodbye!')
+		exit()
+	elif x < a and len(x) == len(a):
+		print('Too low!')
+		guess_count += 1
+		x = input('Guess again: ')
+	elif x > a and len(x) == len(a):
+		print('Too high!')
+		guess_count += 1
+		x = input('Guess again: ')
+	elif x != str(range(1,10)):
+		print('Incorrect entry!')
+		guess_count += 1
+		x = input('Guess again: ')
+	
+	
+
+	
+	
