@@ -1,0 +1,25 @@
+print('Project 1 - Hangman!')
+secret_word = 'testcase'
+answer = []
+guess_count = len(secret_word) + 5
+guesses = 0
+while guesses < guess_count:
+	x = input('Enter a guess: ')
+	if x in secret_word:
+		guesses += 1
+		print('Guesses left: ' + str(guess_count - guesses))
+		answer.append(x)
+		print(answer)
+	if x not in secret_word:
+		guesses += 1
+		print('Guesses left: ' + str(guess_count - guesses))
+	if guesses == guess_count:
+		print('Out of guesses, Game Over!')
+		break
+	if len(answer) >= len(secret_word):
+		letters = [i for i in answer if i in secret_word]
+		print('You have all the letters to solve now.')
+		check = ''.join(letters)
+	if x == secret_word:
+		print('Secret word: ' + x + '\nWin!')
+		break
