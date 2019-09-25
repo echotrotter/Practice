@@ -1,4 +1,4 @@
-print('Project 1 - Hangman!')
+print('Hangman!')
 secret_word = 'testcase'
 answer = []
 guess_count = len(secret_word) + 5
