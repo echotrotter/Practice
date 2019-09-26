@@ -1,25 +1,36 @@
-print('Hangman!')
-secret_word = 'testcase'
-answer = []
-guess_count = len(secret_word) + 5
-guesses = 0
-while guesses < guess_count:
-	x = input('Enter a guess: ')
-	if x in secret_word:
-		guesses += 1
-		print('Guesses left: ' + str(guess_count - guesses))
-		answer.append(x)
-		print(answer)
-	if x not in secret_word:
-		guesses += 1
-		print('Guesses left: ' + str(guess_count - guesses))
-	if guesses == guess_count:
-		print('Out of guesses, Game Over!')
-		break
-	if len(answer) >= len(secret_word):
-		letters = [i for i in answer if i in secret_word]
-		print('You have all the letters to solve now.')
-		check = ''.join(letters)
-	if x == secret_word:
-		print('Secret word: ' + x + '\nWin!')
-		break
+print('Project 1 - Hangman')
+secret_word = 'claptrap'
+letters_guessed = []
+mistakes_made = 0
+MAX_GUESSES = 6
+character_list = True
+
+def word_guessed(letters_guessed):
+	answer = []
+	for letters in secret_word:
+		if letters in letters_guessed:
+			answer.append(letters)
+			check = ''.join(answer)
+			if check == secret_word:
+				print('Solved! Secret word: ' + secret_word)
+				exit()
+
+def print_guessed(letters_guessed):
+	character_list = []
+	for letters in secret_word:
+		if letters in letters_guessed:
+			character_list.append(letters)
+		else:
+			character_list.append('-')
+	blank = ''.join(character_list)
+	return blank
+	
+while mistakes_made < MAX_GUESSES:
+	print('Guesses left: ' + str(MAX_GUESSES - mistakes_made))
+	print(print_guessed(letters_guessed))
+	print(letters_guessed)
+	
+	player = input('Enter a letter: ')
+	letters_guessed.append(player.lower())
+	
+	word_guessed(letters_guessed)		
