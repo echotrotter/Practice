@@ -1,9 +1,11 @@
-print('Project 1 - Hangman')
-secret_word = 'claptrap'
-letters_guessed = []
-mistakes_made = 0
-MAX_GUESSES = 6
-character_list = True
+stage1 =' ______'
+stage2 ='|      |'
+stage3 ='|     ( )'
+stage4 ='|     /|\ '
+stage5 ='|      |'
+stage6 ='|     / \ '
+stage7 ='|'
+stage8 ='|_________'
 
 def word_guessed(letters_guessed):
 	answer = []
@@ -26,6 +28,13 @@ def print_guessed(letters_guessed):
 	return blank
 	
 while mistakes_made < MAX_GUESSES:
+print('Project 1 - Hangman')
+secret_word = 'claptrap'
+letters_guessed = []
+mistakes_made = 0
+MAX_GUESSES = 6
+character_list = True
+
 	print('Guesses left: ' + str(MAX_GUESSES - mistakes_made))
 	print(print_guessed(letters_guessed))
 	print(letters_guessed)
@@ -48,4 +57,33 @@ while mistakes_made < MAX_GUESSES:
 	player == range(0, 9):
 		mistakes_made += 1
 		print('Mistake!')
+	
+	if mistakes_made == 2:
+		print(stage1)
+		print(stage2)
+	if mistakes_made == 3:
+		print(stage1)
+		print(stage2)
+		print(stage3)
+	if mistakes_made == 4:
+		print(stage1)
+		print(stage2)
+		print(stage3)
+		print(stage4)
+	if mistakes_made == 5:
+		print(stage1)
+		print(stage2)
+		print(stage3)
+		print(stage4)
+		print(stage5)
+	if mistakes_made == 6:
+		print(stage1)
+		print(stage2)
+		print(stage3)
+		print(stage4)
+		print(stage5)
+		print(stage6)
+		print(stage7)
+		print(stage8)
+		print('Game Over!')
 	
