@@ -36,6 +36,7 @@ while mistakes_made < MAX_GUESSES:
 	word_guessed(letters_guessed)
 	
 	if player not in secret_word or \
+	player in letter_guessed or \
 	player == range(0, 9) or \
 	len(player) > 1 
 		mistakes_made += 1
