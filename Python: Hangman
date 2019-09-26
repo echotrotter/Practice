@@ -35,10 +35,17 @@ while mistakes_made < MAX_GUESSES:
 	
 	word_guessed(letters_guessed)
 	
+	if player == secret_word:
+		print('Solved! Secret word: ' + secret_word)
+		exit()
+	
+	if len(player) == len(secret_word) and \
+	player != secret_word:
+		mistakes_made += 2
+		print('Mistake!')
+		
 	if player not in secret_word or \
-	player in letter_guessed or \
-	player == range(0, 9) or \
-	len(player) > 1 
+	player == range(0, 9):
 		mistakes_made += 1
 		print('Mistake!')
 	
